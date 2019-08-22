@@ -5,7 +5,7 @@ https://findly.herokuapp.com
 
 ### Process to run this application locally
 1. Clone the app
-2. Install all dependecies by running:
+2. Install all dependencies by running:
     ```composer install```
 3. After installing all dependencies, just run the server:
     ```php artisan serve```
