@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home() {
-        return '<center><h1>Welcome to FindCity 1.0</h1><br><a href="/suggestions?q=Londo&latitude=43.70011&longitude=-79.4163">Run test here</a></center>';
+        return '<center><h1>Welcome to Findly 1.0</h1><br><a href="/suggestions?q=Londo&latitude=43.70011&longitude=-79.4163">Run test here</a></center>';
     }
 
     public function suggestions(REQUEST $request){
