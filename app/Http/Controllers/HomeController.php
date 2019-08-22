@@ -29,6 +29,10 @@ class HomeController extends Controller
                     // Once we detect that the latitude and longitude are provided from the client side, 
                     // We will use the Haversine Formula to calculate the distance and provide it as a score first 
                     if($lat && $lon){
+                        // Then we will sort the objects according to their scores (in ascending mode)
+                        usort($result, function ($data1, $data2) {
+                            return $data1->score > $data2->score;
+                        });
                         $object->score = HomeController::haversineFormula($data[2], $data[3], $lat, $lon);
                     }
                     array_push($result, $object);
@@ -41,11 +45,6 @@ class HomeController extends Controller
                 $highest = $result[$size - 1]->score + 1;
                 
                 for($a = 0; $a < $size; $a++){
-                    // Then we will sort the objects according to their scores (in ascending mode)
-                    usort($result, function ($data1, $data2) {
-                        return $data1->score > $data2->score;
-                    });
-
                     // After that, we shall normalize the distance values
                     $result[$a]->score = HomeController::reverseNormalization($highest, $lowest, $result[$a]->score);
                 }
