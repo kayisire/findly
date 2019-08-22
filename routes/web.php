@@ -12,5 +12,4 @@
 */
 
 Route::get('/', 'HomeController@home');
-
 Route::get('/suggestions', 'HomeController@suggestions');
